@@ -1,0 +1,63 @@
+@model BeFit.Models.WorkoutExercise
+
+@{
+    ViewData["Title"] = "Usuń wykonane ćwiczenie";
+}
+
+<h1>Usuń wykonane ćwiczenie</h1>
+
+<div class="alert alert-warning">
+    Czy na pewno chcesz usunąć to ćwiczenie z historii treningowej?
+    Tej operacji nie można cofnąć.
+</div>
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.ExerciseTypeId)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.ExerciseType?.Name
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.WorkoutSessionId)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.WorkoutSession?.StartTime.ToString("dd.MM.yyyy HH:mm")
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Weight)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Weight.ToString("0.##") kg
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Sets)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Sets
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Repetitions)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Repetitions
+        @Model.Repetitions
+    </dd>
+</dl>
+
+<form asp-action="Delete"
+      asp-route-id="@Model.Id"
+      method="post">
+
+    <button type="submit" class="btn btn-danger">
+        Usuń ćwiczenie
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Anuluj
+    </a>
+</form>

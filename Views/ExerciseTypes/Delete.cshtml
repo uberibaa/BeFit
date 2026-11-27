@@ -1,0 +1,43 @@
+@model BeFit.Models.ExerciseType
+
+@{
+    ViewData["Title"] = "Usuń ćwiczenie";
+}
+
+<h1>Usuń ćwiczenie</h1>
+
+<div class="alert alert-warning">
+    Czy na pewno chcesz usunąć ten typ ćwiczenia?
+    Tej operacji nie można cofnąć.
+</div>
+
+<div asp-validation-summary="ModelOnly"
+     class="text-danger"></div>
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">
+        Usuń ćwiczenie
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Anuluj
+    </a>
+</form>

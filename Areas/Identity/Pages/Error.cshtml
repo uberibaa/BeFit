@@ -1,0 +1,10 @@
+@page
+@model ErrorModel
+@{ ViewData["Title"] = "Błąd"; }
+<h1 class="text-danger">Wystąpił błąd</h1>
+<p>Nie udało się przetworzyć żądania.</p>
+@if (Model.ShowRequestId)
+{
+    <p><strong>Identyfikator żądania:</strong> <code>@Model.RequestId</code></p>
+}
+<a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Wróć na stronę główną</a>

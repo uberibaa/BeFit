@@ -1,0 +1,71 @@
+@model IEnumerable<BeFit.Models.ExerciseStatistics>
+
+@{
+    ViewData["Title"] = "Moje statystyki";
+
+    var startDate = (DateTime)ViewData["StartDate"]!;
+    var endDate = (DateTime)ViewData["EndDate"]!;
+}
+
+<h1>Moje statystyki</h1>
+
+<p>Podsumowanie aktywności z ostatnich czterech tygodni.</p>
+
+<p class="text-muted">
+    Okres: @startDate.ToString("dd.MM.yyyy")
+    – @endDate.ToString("dd.MM.yyyy")
+</p>
+
+@if (!Model.Any(e => e.ExecutionCount > 0))
+{
+    <div class="alert alert-info">
+        Nie masz zapisanych ćwiczeń z ostatnich czterech tygodni.
+    </div>
+}
+
+<div class="table-responsive">
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExerciseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExecutionCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalRepetitions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxWeight)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ExerciseName</td>
+                <td>@item.ExecutionCount</td>
+                <td>@item.TotalRepetitions</td>
+                <td>
+                    @(item.AverageWeight?.ToString("0.##") ?? "—")
+                </td>
+                <td>
+                    @(item.MaxWeight?.ToString("0.##") ?? "—")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+<a asp-controller="WorkoutSessions"
+   asp-action="Index"
+   class="btn btn-secondary">
+    Wróć do treningów
+</a>

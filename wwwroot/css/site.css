@@ -1,0 +1,142 @@
+
+:root {
+    --befit-green: #15803d;
+    --befit-dark: #17212b;
+    --befit-background: #f4f6f8;
+}
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    background-color: var(--befit-background);
+    color: var(--befit-dark);
+    margin-bottom: 70px;
+}
+
+.navbar {
+    background-color: var(--befit-dark) !important;
+    padding: 14px 10px;
+}
+
+.navbar-brand {
+    color: #4ade80 !important;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.navbar .nav-link {
+    color: #e2e8f0 !important;
+}
+
+    .navbar .nav-link:hover {
+        color: #4ade80 !important;
+    }
+
+.navbar-toggler {
+    background-color: #f4f6f8;
+}
+
+main {
+    padding-top: 24px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+h1 {
+    margin-bottom: 24px;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: var(--befit-green) !important;
+    border-color: var(--befit-green) !important;
+}
+
+    .btn-primary:hover {
+        background-color: #166534 !important;
+    }
+
+.table {
+    background-color: white;
+    vertical-align: middle;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .table thead th {
+        background-color: var(--befit-dark);
+        color: white;
+        padding: 14px;
+    }
+
+    .table td {
+        padding: 12px;
+    }
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--befit-green);
+        box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.15);
+    }
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.footer {
+    background-color: white;
+}
+
+.befit-hero {
+    background: var(--befit-dark);
+    color: white;
+    border-radius: 18px;
+    padding: 60px 30px;
+    margin-bottom: 32px;
+}
+
+    .befit-hero h1 {
+        font-size: 3rem;
+    }
+
+.befit-accent {
+    color: #4ade80;
+}
+
+.nav-pills .nav-link.active { background-color: var(--befit-green); }
+.nav-pills .nav-link:not(.active) { color: var(--befit-green); }
+.table-responsive { margin-bottom: 1rem; }
+.table td .btn { margin: 2px 0; }
+.form-floating > .form-control { min-height: 3.5rem; }
+.input-validation-error { border-color: #dc3545; }
+@media (max-width: 576px) {
+    .befit-hero { padding: 36px 18px; }
+    .befit-hero h1 { font-size: 2rem; }
+    .footer { font-size: .85rem; }
+}

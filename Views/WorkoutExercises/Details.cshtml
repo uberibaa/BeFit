@@ -1,0 +1,62 @@
+@model BeFit.Models.WorkoutExercise
+
+@{
+    ViewData["Title"] = "Szczegóły wykonanego ćwiczenia";
+}
+
+<h1>Szczegóły wykonanego ćwiczenia</h1>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.ExerciseTypeId)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.ExerciseType?.Name
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.WorkoutSessionId)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.WorkoutSession?.StartTime.ToString("dd.MM.yyyy HH:mm")
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Weight)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Weight.ToString("0.##") kg
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Sets)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Sets
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Repetitions)
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Repetitions
+    </dd>
+
+    <dt class="col-sm-3">
+        Łączna liczba powtórzeń
+    </dt>
+    <dd class="col-sm-9">
+        @(Model.Sets * Model.Repetitions)
+    </dd>
+</dl>
+
+<a asp-action="Edit"
+   asp-route-id="@Model.Id"
+   class="btn btn-warning">
+    Edytuj
+</a>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Wróć do listy
+</a>

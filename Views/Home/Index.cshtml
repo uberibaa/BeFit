@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Strona główna";
+}
+
+<section class="befit-hero text-center">
+
+    <h1>Witaj w <span class="befit-accent">BeFit</span></h1>
+
+    <p class="lead">
+        Twój osobisty dziennik treningowy.
+    </p>
+
+    <p>
+        Planuj treningi, zapisuj ćwiczenia
+        i analizuj swoje postępy.
+    </p>
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <a asp-controller="WorkoutSessions"
+           asp-action="Create"
+           class="btn btn-primary btn-lg">
+            Dodaj trening
+        </a>
+    }
+    else
+    {
+        <a asp-area="Identity"
+           asp-page="/Account/Register"
+           class="btn btn-primary btn-lg">
+            Rozpocznij teraz
+        </a>
+    }
+
+</section>
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+        <div class="card h-100 p-4">
+            <h3>Katalog ćwiczeń</h3>
+            <p>Przeglądaj dostępne rodzaje ćwiczeń.</p>
+
+            <a asp-controller="ExerciseTypes"
+               asp-action="Index"
+               class="btn btn-outline-success mt-auto">
+                Zobacz ćwiczenia
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 p-4">
+            <h3>Moje treningi</h3>
+            <p>Zapisuj i przeglądaj swoje sesje treningowe.</p>
+
+            <a asp-controller="WorkoutSessions"
+               asp-action="Index"
+               class="btn btn-outline-success mt-auto">
+                Zobacz treningi
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 p-4">
+            <h3>Statystyki</h3>
+            <p>Analizuj swoje wyniki z ostatnich czterech tygodni.</p>
+
+            <a asp-controller="Statistics"
+               asp-action="Index"
+               class="btn btn-outline-success mt-auto">
+                Zobacz statystyki
+            </a>
+        </div>
+    </div>
+
+</div>
