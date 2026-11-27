@@ -56,5 +56,3 @@ Statystyki uwzględniają własne sesje rozpoczęte w ostatnich 28 dniach. Liczb
 ## Uwagi
 
 Projekt jest przeznaczony do uruchamiania lokalnie. Wysyłka e-maili i logowanie przez zewnętrznych dostawców nie są skonfigurowane. W środowisku Development potwierdzenie adresu e-mail nie jest wymagane.
-
-Scenariusze testowe znajdują się w [docs/TESTY.md](docs/TESTY.md).
